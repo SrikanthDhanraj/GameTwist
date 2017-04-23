@@ -164,7 +164,7 @@ namespace GameTwistSmoke.Application_Pages
                 InternalWait.Until(ExpectedConditions.ElementIsVisible(btn_AuthenticatedLanguage));
                 
                 act.MoveToElement(driver.FindElement(btn_AuthenticatedLanguage)).ContextClick(driver.FindElement(btn_AuthenticatedLanguage)).Build().Perform();
-
+                
             }
 
 
@@ -180,10 +180,10 @@ namespace GameTwistSmoke.Application_Pages
 
             else if (Language == ApplicationLanguage.Français)
                 driver.FindElement(By.LinkText("Français")).Click();
-            
-            
-            
-                                    
+
+            InternalWait.Until(ExpectedConditions.ElementExists(btn_UserOptions));
+            //InternalWait.Until(ExpectedConditions.ElementToBeClickable(btn_UserOptions));
+
         }
 
         /*
@@ -207,6 +207,7 @@ namespace GameTwistSmoke.Application_Pages
 
             if (BrowserType.Trim().ToLower() == "chrome")
             {
+                
                 InternalWait.Until(ExpectedConditions.ElementExists(btn_UserOptions));
                 InternalWait.Until(ExpectedConditions.StalenessOf(driver.FindElement(btn_UserOptions)));
                 InternalWait.Until(ExpectedConditions.ElementIsVisible(btn_UserOptions));
@@ -214,11 +215,11 @@ namespace GameTwistSmoke.Application_Pages
 
                 Actions act = new Actions(driver);
                 act.MoveToElement(driver.FindElement(btn_UserOptions)).ContextClick(driver.FindElement(btn_UserOptions)).Build().Perform();
-
+                
             }
 
-            commonfunctions.ClickElement(driver, btn_signout);            
-
+            commonfunctions.ClickElement(driver, btn_signout);
+            
         }
 
     }
